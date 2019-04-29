@@ -1,0 +1,19 @@
+
+<div class="alert" [ngClass]="alert" role="alert">
+    A simple primary alert—check it out!
+</div>
+
+<button type="button" (click)="alert = 'alert-info'" class="btn btn-info m-1"> Info </button> 
+<button type="button" (click)="alert = 'alert-success'" class="btn btn-success m-1"> Success </button> 
+<button type="button" (click)="alert = 'alert-warning'" class="btn btn-warning m-1"> Warning </button>
+
+<br><br>
+
+<h3>Proceso Asincrono</h3>
+
+<button type="button" class="btn btn-outline-primary" (click)="execute()" [disabled]="loading"><i [ngClass]="{'fa-save':!loading, 'fa-sync fa-spin':loading}" class="fa"></i> Guardar cambios</button>
+
+<br><br><br>
+<p [appMarker]="'orange'" >
+    Hola Mundo!!
+</p>

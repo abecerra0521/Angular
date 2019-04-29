@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="assets/A-64.png" width="40" height="40" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/heroes']" routerLinkActive="active">Heroes </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active">About </a>
+      </li>
+    </ul>
+
+    <input class="form-control col-md-2 mr-sm-2" type="search" placeholder="Buscar ..." (keyup.enter)="search(searchName.value)" #searchName />
+    <button (click)="search(searchName.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button> &nbsp;
+    <!-- <button [routerLink]="['/heroes']"  class="btn btn-outline-success my-2 my-sm-0" type="button">Mostrar todo</button> -->
+  </div>
+</nav>

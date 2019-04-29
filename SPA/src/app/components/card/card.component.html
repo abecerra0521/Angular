@@ -1,0 +1,9 @@
+<div class="card animated fadeIn fast">
+    <img [src]="hero.img" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{hero.nombre}} <small class="text-muted">( {{hero.casa}} )</small></h5>
+      <p class="card-text">{{hero.bio}}</p>
+      <p class="card-text"><small class="text-muted">{{hero.aparicion | date: 'yyyy:-MM'}}</small></p>
+      <button class="btn btn-outline-primary btn-block" [routerLink]="['/hero',hero.id]" >Ver mas ...</button>
+    </div>
+  </div> 

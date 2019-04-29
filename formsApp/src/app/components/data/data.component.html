@@ -1,0 +1,56 @@
+<h4>Formularios <small>data</small></h4>
+<hr>
+<form [formGroup]="form" (ngSubmit)="save()" novalidate>
+  <div formGroupName="names">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Nombre" formControlName="name">
+        <div *ngIf="form.get('names.name').errors?.required && form.get('names.name').touched" class="text-danger">
+          El campo nombre es requerido.
+        </div>
+        <div *ngIf="form.get('names.name').errors?.minlength" class="text-danger">
+          El campo nombre debe tener al menos 5 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Apellido" formControlName="lastName">
+        <div *ngIf="form.get('names.lastName').errors?.required && form.get('names.lastName').touched" class="text-danger">
+          El campo apellido es requerido.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+      <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="email">
+      <div *ngIf="form.controls['email'].errors?.required && form.controls['email'].touched" class="text-danger">
+        El campo correo electronico es requerido.
+      </div>
+      <div *ngIf="form.controls['email'].errors?.pattern" class="text-danger">
+        El campo correo electronico tiene un formato no valido.
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Deportes</label>
+    <div class="col-md-8" formArrayName="sports">
+      <input class="form-control" type="text" placeholder="Deportes" [formControlName]="i" *ngFor="let item of form.controls['sports']; let i = index">
+      <div *ngIf="form.controls['sports'].errors?.required && form.controls['sports'].touched" class="text-danger">
+        El campo deportes es requerido.
+      </div>
+    </div>
+    <button (click)="addelement()" class="btn btn-outline-secondary">Agregar Deporte</button>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-outline-primary">Guardar</button>
+    </div>
+  </div>
+  {{form.valid}}
+</form>
